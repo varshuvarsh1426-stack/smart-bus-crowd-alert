@@ -81,6 +81,40 @@ const RideSenseMap = {
         const accuracy = position.coords.accuracy;
 
         this.userLocation = { lat, lng, accuracy };
+        let placeName = "Finding your location...";
+
+fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+ .then(data => {
+  placeName = data.display_name || "Location found";
+
+  if (this.userMarker) {
+    this.userMarker.setPopupContent(`
+      <div class="p-1 text-slate-900 font-sans text-xs">
+        <strong>Your Live Location</strong><br>
+        <span class="text-[10px] text-emerald-600 font-bold">${placeName}</span><br>
+        <span class="text-[10px] text-slate-500">
+          Accuracy: ~${Math.round(accuracy)}m
+        </span>
+      </div>
+    `);
+  }
+})
+    
+    if (this.userMarker) {
+      this.userMarker.setPopupContent(`
+        <div class="p-1 text-slate-900 font-sans text-xs">
+          <strong>Your Live Location</strong><br>
+          <span class="text-[10px] text-emerald-600 font-bold">${placeName}</span><br>
+          <span class="text-[10px] text-slate-500">
+            Accuracy: ~${Math.round(accuracy)}m
+          </span>
+        </div>
+      `);
+    }
+  })
+  .catch(() => {
+    placeName = "Location found";
+  });
 
         // Center map on user
         if (this.map) {

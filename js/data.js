@@ -2,8 +2,7 @@
 // "Smart Travel. Smarter Buses. Better Journeys."
 const RideSenseData = {
   appName: "RideSense",
-  tagline: "Smart Travel. Smarter Buses. Better Journeys.",
-
+tagline: "Smarter Routes, Safer Journeys"
   // Transit Regions & Corridors
   corridors: [
     { id: "all", name: "All Routes & Corridors", nameTa: "அனைத்து வழித்தடங்களும்", nameHi: "सभी मार्ग और गलियारे" },
