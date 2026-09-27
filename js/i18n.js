@@ -12,7 +12,7 @@ const RideSenseI18n = {
   translations: {
     en: {
       appName: "RideSense",
-      tagline: "Smart Travel. Smarter Buses. Better Journeys.",
+      tagline: "Smarter Routes, Safer Journeys" ,
       demoSimulatedBadge: "DEMO / SIMULATED DATA",
       liveGpsBadge: "LIVE DEVICE LOCATION",
       
