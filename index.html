@@ -225,6 +225,111 @@
   <!-- 4. MAIN CONTENT CONTAINER                                -->
   <!-- ======================================================== -->
   <main class="flex-1 max-w-7xl mx-auto w-full px-4 py-6">
+    <!-- ==================== HOME PAGE ==================== -->
+<div id="homePageView" class="space-y-8">
+
+  <!-- Home Hero -->
+  <section class="relative min-h-[520px] rounded-3xl overflow-hidden
+                  bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950
+                  border border-slate-800 shadow-2xl flex items-center">
+
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-cyan-500/10"></div>
+
+    <div class="relative z-10 p-8 md:p-14 max-w-3xl">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full
+                  bg-blue-500/10 border border-blue-400/30
+                  text-blue-300 text-xs font-bold mb-6">
+        <i class="fa-solid fa-wave-square"></i>
+        Smart Mobility Platform
+      </div>
+
+      <!-- Title -->
+      <h2 class="text-5xl md:text-7xl font-black tracking-tight text-white mb-4">
+        RideSense
+      </h2>
+
+      <!-- Subtitle -->
+      <h3 class="text-xl md:text-2xl font-bold text-cyan-400 mb-5">
+        Sense the crowd, choose your ride
+      </h3>
+
+      <!-- Description -->
+      <p class="text-slate-300 text-base md:text-lg leading-relaxed max-w-2xl mb-8">
+        Know the crowd. Track your bus. Explore your journey.
+        Choose the ride that suits you.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap gap-3">
+
+        <button onclick="RideSenseApp.switchPortal('passenger')"
+          class="px-6 py-3 rounded-xl bg-blue-500 hover:bg-blue-400
+                 text-white font-bold shadow-lg shadow-blue-500/20
+                 transition flex items-center gap-2">
+          <i class="fa-solid fa-bus"></i>
+          Search Bus
+        </button>
+
+        <button onclick="RideSenseApp.switchPortal('tourist')"
+          class="px-6 py-3 rounded-xl bg-slate-700/80 hover:bg-slate-600
+                 border border-slate-600 text-white font-bold transition
+                 flex items-center gap-2">
+          <i class="fa-regular fa-compass"></i>
+          Explore Places
+        </button>
+
+        <button onclick="RideSenseMap.requestRealLocation()"
+          class="px-6 py-3 rounded-xl bg-slate-700/80 hover:bg-slate-600
+                 border border-slate-600 text-white font-bold transition
+                 flex items-center gap-2">
+          <i class="fa-solid fa-location-dot"></i>
+          Live Tracking
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Cards -->
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+    <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800">
+      <i class="fa-solid fa-bus text-2xl text-blue-400 mb-3"></i>
+      <h3 class="font-bold text-white">Find Your Bus</h3>
+      <p class="text-xs text-slate-400 mt-2">
+        Search buses, routes, timings and fares easily.
+      </p>
+    </div>
+
+    <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800">
+      <i class="fa-solid fa-users text-2xl text-emerald-400 mb-3"></i>
+      <h3 class="font-bold text-white">Crowd Status</h3>
+      <p class="text-xs text-slate-400 mt-2">
+        Check the current crowd level before choosing a bus.
+      </p>
+    </div>
+
+    <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800">
+      <i class="fa-solid fa-location-crosshairs text-2xl text-cyan-400 mb-3"></i>
+      <h3 class="font-bold text-white">Live Tracking</h3>
+      <p class="text-xs text-slate-400 mt-2">
+        Track your bus and current location in real time.
+      </p>
+    </div>
+
+    <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800">
+      <i class="fa-solid fa-shield-halved text-2xl text-rose-400 mb-3"></i>
+      <h3 class="font-bold text-white">Safe Journey</h3>
+      <p class="text-xs text-slate-400 mt-2">
+        SOS, lost & found and journey assistance in one place.
+      </p>
+    </div>
+
+  </section>
+
+</div>
     
     <!-- ==================== PASSENGER PORTAL ==================== -->
     <div id="passengerPortalView" class="space-y-6">
@@ -531,6 +636,17 @@
   <script src="js/admin.js"></script>
   <script src="js/simulation.js"></script>
   <script src="js/app.js"></script>
+  <script>
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      document.getElementById("homePageView")?.classList.remove("hidden");
+      document.getElementById("passengerPortalView")?.classList.add("hidden");
+      document.getElementById("touristPortalView")?.classList.add("hidden");
+      document.getElementById("driverPortalView")?.classList.add("hidden");
+      document.getElementById("adminPortalView")?.classList.add("hidden");
+    }, 300);
+  });
+</script>
 
 </body>
 </html>

@@ -2,8 +2,7 @@
 // "Smart Travel. Smarter Buses. Better Journeys."
 const RideSenseApp = {
   activeBus: null,
-  activePortal: "passenger", // "passenger" | "tourist" | "driver" | "admin"
-  activeCorridor: "all",
+activePortal: "home", // "home" | "passenger" | "tourist" | "driver" | "admin"  activeCorridor: "all",
   activePassengerType: "general",
   selectedOrigin: "Kanyakumari Bus Stand",
   selectedDestination: "Vivekananda Ferry Area",
@@ -60,7 +59,8 @@ const RideSenseApp = {
   // Portal Navigation
   switchPortal: function(portal) {
     this.activePortal = portal;
-
+    
+    const homeView = document.getElementById("homePageView"); 
     const passengerView = document.getElementById("passengerPortalView");
     const touristView = document.getElementById("touristPortalView");
     const driverView = document.getElementById("driverPortalView");
@@ -71,7 +71,7 @@ const RideSenseApp = {
     const tabDriver = document.getElementById("tabBtnDriver");
     const tabAdmin = document.getElementById("tabBtnAdmin");
 
-    [passengerView, touristView, driverView, adminView].forEach(el => el && el.classList.add("hidden"));
+    [homeView, passengerView, touristView, driverView, adminView].forEach(el => el && el.classList.add("hidden"));;
     [tabPassenger, tabTourist, tabDriver, tabAdmin].forEach(el => {
       if (el) {
         el.classList.remove("bg-blue-600", "text-white", "shadow-lg");
@@ -99,7 +99,10 @@ const RideSenseApp = {
       tabAdmin.classList.add("bg-blue-600", "text-white", "shadow-lg");
       tabAdmin.classList.remove("text-slate-300", "hover:bg-slate-800");
       RideSenseAdmin.render();
+    } else if (portal === "home" && homeView) {
+      homeView.classList.remove("hidden");
     }
+    
   },
 
   selectBus: function(busId) {
@@ -1078,4 +1081,7 @@ window.RideSenseApp = RideSenseApp;
 
 document.addEventListener("DOMContentLoaded", () => {
   RideSenseApp.init();
+  document.addEventListener("DOMContentLoaded", () => {
+  RideSenseApp.init();
+  RideSenseApp.switchPortal("home");
 });
